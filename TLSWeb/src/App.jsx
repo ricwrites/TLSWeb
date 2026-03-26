@@ -23,7 +23,7 @@ function App() {
 
         {/* Header section */}
         <div className="header">
-          <img src="/assets/TLS.jpg" alt="Logo" className="logo" />
+          <img src="/TLS.jpg" alt="Logo" className="logo" />
           <h1>The Learning Sanctuary</h1>
         </div>
 
