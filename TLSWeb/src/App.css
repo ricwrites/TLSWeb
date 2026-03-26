@@ -1,0 +1,79 @@
+/* Left fixed navigation */
+.NavButs {
+  position: fixed;
+  top: 150px;           /* vertical offset */
+  left: 0;
+  width: 200px;         /* sidebar width */
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  background-color: lightgray;
+  border-right: 1px solid #ccc;
+  height: 100vh;        /* full height */
+  box-sizing: border-box;
+  z-index: 10;          /* ensure it’s above watermark */
+}
+
+.NavButs button {
+  border-radius: 30px;
+  margin-bottom: 10px;
+}
+
+/* Page content (offset for sidebar) */
+.page-content {
+  margin-left: 320px;   /* offset to leave space for nav */
+  padding: 40px;
+  position: relative;   /* so watermark can be absolute inside */
+  min-height: 100vh;
+  box-sizing: border-box;
+  z-index: 1;           /* default above watermark */
+}
+
+/* Header section */
+.header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1px;
+}
+
+.logo {
+  height: 120px;
+  width: 120px;
+  margin-right: 30px;
+}
+
+/* Watermark */
+.watermark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 600px;           /* size of watermark */
+  opacity: 0.06;          /* very light */
+  transform: translate(-50%, -50%);
+  pointer-events: none;    /* clicks pass through */
+  z-index: 0;              /* behind content */
+}
+
+
+/* Calendar grid */
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+  margin-top: 20px;
+}
+
+.calendar-grid div {
+  text-align: center;
+  padding: 10px;
+  border: 1px solid #ccc;
+  font-weight: normal;
+  transition: background-color 0.3s, color 0.3s;
+  background-color: var(--bg, #fff); /* default white if no event */
+}
+
+.calendar-grid div.has-event {
+  font-weight: bold;
+  color: #fff;
+  cursor: pointer;
+}
