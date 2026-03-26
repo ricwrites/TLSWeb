@@ -101,7 +101,7 @@ export const Events = () => {
     {currentEvent.images.map((img, idx) => (
       <img
         key={idx}
-        src={`https://learningsanctuaryt.onrender.com/${img}`} // prepend backend URL
+        src={`https://learningsanctuaryt.onrender.com/api${img}`} // prepend backend URL
         alt={`Event ${idx}`}
         style={{ height: 200, borderRadius: "10px" }}
       />
