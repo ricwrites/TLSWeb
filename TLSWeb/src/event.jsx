@@ -96,16 +96,46 @@ export const Events = () => {
           <p>{currentEvent.description}</p>
 
           {/* Images carousel */}
-          {currentEvent.images?.length > 0 && (
-  <div style={{ display: "flex", gap: "10px", overflowX: "auto", marginTop: "10px" }}>
-    {currentEvent.images.map((img, idx) => (
-      <img
-        key={idx}
-        src={`https://learningsanctuaryt.onrender.com/api${img}`} // prepend backend URL
-        alt={`Event ${idx}`}
-        style={{ height: 200, borderRadius: "10px" }}
-      />
-    ))}
+        {currentEvent.images?.length > 0 && (
+  <div
+    style={{
+      display: "flex",
+      gap: "10px",
+      overflowX: "auto",
+      marginTop: "10px"
+    }}
+  >
+    {currentEvent.images.map((img, idx) => {
+      // Normalize all possible backend formats into a usable URL
+      let url = "";
+
+      if (typeof img === "string") {
+        try {
+          // handles cases where backend sends JSON stringified arrays
+          url = JSON.parse(img);
+        } catch {
+          url = img;
+        }
+      }
+
+      if (typeof img === "object" && img !== null) {
+        url = img.url || img.secure_url || img.path || "";
+      }
+
+      // If JSON.parse returned array accidentally
+      if (Array.isArray(url)) {
+        url = url[0];
+      }
+
+      return url ? (
+        <img
+          key={idx}
+          src={url}
+          alt={`Event ${idx}`}
+          style={{ height: 200, borderRadius: "10px", objectFit: "cover" }}
+        />
+      ) : null;
+    })}
   </div>
 )}
 
