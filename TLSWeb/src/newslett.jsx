@@ -165,56 +165,56 @@ function NewsletterApp() {
       </div>
 
       {/* CONTENT LAYOUT */}
-      {(!selectedIssue.layout || selectedIssue.layout.length === 0) && (
-        <p>No content in this issue.</p>
-      )}
+{(!selectedIssue.layout || selectedIssue.layout.length === 0) && (
+  <p>No content in this issue.</p>
+)}
 
-      {selectedIssue.layout.map((row, i) => (
-        <div
-          key={row.id || i}
-          style={{
-            display: "grid",
-            gridTemplateColumns: row.columns.map(() => "1fr").join(" "),
-            gap: 20,
-            marginBottom: 20,
-            ...row.style,
-          }}
-        >
-          {row.columns.map((col) => (
-            <div key={col.id} style={col.style}>
-              {col.items.map((itemId) => {
-                const item = selectedIssue.items[itemId];
-                if (!item) return null;
+{selectedIssue.layout.map((row, i) => (
+  <div
+    key={row.id || i}
+    style={{
+      display: "grid",
+      gridTemplateColumns: row.columns.map(() => "1fr").join(" "),
+      gap: 20,
+      marginBottom: 20,
+      ...row.style,
+    }}
+  >
+    {row.columns.map((col) => (
+      <div key={col.id} style={col.style}>
+        {col.items.map((itemId) => {
+          const item = selectedIssue.items[itemId];
+          if (!item) return null;
 
-                return (
-                  <div key={itemId} style={item.style}>
-                    {/* TEXT BLOCK */}
-                    {item.type === "text" && (
-                      <>
-                        <h3>{item.title}</h3>
-                        <p>{item.content}</p>
-                        {item.author && <small>— {item.author}</small>}
-                      </>
-                    )}
+          return (
+            <div key={itemId} style={item.style}>
+              {/* TEXT BLOCK */}
+              {item.type === "text" && (
+                <>
+                  <h3>{item.title}</h3>
+                  <p>{item.content}</p>
+                  {item.author && <small>— {item.author}</small>}
+                </>
+              )}
 
-                    {/* IMAGE BLOCK */}
-                    {item.type === "image" && (
-                      <>
-                        {item.title && <h3>{item.title}</h3>}
-                        <img
-                          src={item.image || item.images?.[0]}
-                          alt={item.title}
-                          style={{ maxWidth: "100%" }}
-                        />
-                      </>
-                    )}
-                  </div>
-                );
-              })}
+              {/* IMAGE BLOCK */}
+              {item.type === "image" && (
+                <>
+                  {item.title && <h3>{item.title}</h3>}
+                  <img
+                    src={item.image || item.images?.[0]}
+                    alt={item.title}
+                    style={{ maxWidth: "100%" }}
+                  />
+                </>
+              )}
             </div>
-          ))}
-        </div>
-      ))}
+          );
+        })}
+      </div>
+    ))}
+  </div>
+))}
     </div>
   );
 }
