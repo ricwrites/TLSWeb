@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 
-const API_URL = "https://learningsanctuaryt.onrender.com";
+const API_URL = "https://thelearningsanctuary.quest";
 
 export function Login() {
   const [username, setUsername] = useState("");
@@ -30,10 +30,10 @@ export function Login() {
 
       if (json.role === "teacher") {
   // redirect to static classroom pages
-  window.location.href = "https://learningsanctuaryt.onrender.com/home.html"; // or your teacher landing page
+  window.location.href = "https://teacher.thelearningsanctuary.quest/home.html"; // or your teacher landing page
 } else if (json.role === "admin") {
   // redirect to the separate admin SPA
-  window.location.href = "https://learningsanctuaryt.onrender.com/admin";
+  window.location.href = "https://admin.thelearningsanctuary.quest/";
 } else {
         alert("Unknown role");
       }
