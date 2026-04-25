@@ -9,7 +9,7 @@ export const Events = () => {
 
   // Fetch events from server
   useEffect(() => {
-    fetch("https://learningsanctuaryt.onrender.com/api/events")
+    fetch("https://thelearningsanctuary.quest/api/events")
       .then(res => res.json())
       .then(data => {
         setEvents(data);
