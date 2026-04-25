@@ -33,7 +33,7 @@ export function Login() {
   window.location.href = "https://teacher.thelearningsanctuary.quest/home.html"; // or your teacher landing page
 } else if (json.role === "admin") {
   // redirect to the separate admin SPA
-  window.location.href = "https://admin.thelearningsanctuary.quest/";
+  window.location.href = "https://admin.thelearningsanctuary.quest/admin";
 } else {
         alert("Unknown role");
       }
