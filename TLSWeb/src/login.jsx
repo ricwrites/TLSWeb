@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 
-const API_URL = "https://thelearningsanctuary.quest";
+const API_URL = "https://admin.thelearningsanctuary.quest";
 
 export function Login() {
   const [username, setUsername] = useState("");

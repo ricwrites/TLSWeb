@@ -93,7 +93,7 @@ function NewsletterApp() {
      FETCH PUBLISHED ISSUES
   ========================== */
   useEffect(() => {
-    fetch("https://learningsanctuaryt.onrender.com/api/newsletter/published")
+    fetch("https://admin.thelearningsanctuary.quest/api/newsletter/published")
       .then((res) => res.json())
       .then((data) => {
         const normalized = (data || []).map(normalizeIssue);
@@ -106,7 +106,7 @@ function NewsletterApp() {
      FETCH SINGLE ISSUE
   ========================== */
   const fetchIssue = (id) => {
-    fetch(`https://learningsanctuaryt.onrender.com/api/newsletter/${id}`)
+    fetch(`https://admin.thelearningsanctuary.quest/api/newsletter/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setSelectedIssue(normalizeIssue(data));

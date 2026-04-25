@@ -8,14 +8,14 @@ export const Calendar = () => {
   const [selectedDayEvents, setSelectedDayEvents] = useState([]);
 
   useEffect(() => {
-    fetch("https://learningsanctuaryt.onrender.com/api/calendar/years")
+    fetch("https://admin.thelearningsanctuary.quest/api/calendar/years")
       .then(res => res.json())
       .then(data => setYears(data));
   }, []);
 
   useEffect(() => {
     if (!selectedYear) return;
-    fetch(`https://learningsanctuaryt.onrender.com/api/calendar/${selectedYear}`)
+    fetch(`https://admin.thelearningsanctuary.quest/api/calendar/${selectedYear}`)
       .then(res => res.json())
       .then(data => setEvents(data));
   }, [selectedYear]);
