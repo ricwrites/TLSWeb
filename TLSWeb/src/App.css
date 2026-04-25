@@ -12,10 +12,12 @@
   height: 100vh;        /* full height */
   box-sizing: border-box;
   z-index: 10;          /* ensure it’s above watermark */
+  border: 3px lightgray;
 }
 
 body, #root {
 background-color:beige;
+color: black;
 }
 
 .NavButs button {
