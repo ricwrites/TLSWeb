@@ -15,7 +15,7 @@
   border: 3px lightgray;
 }
 
-body, #root {
+body {
 background-color:beige;
 color: black;
 }
@@ -85,4 +85,15 @@ color: black;
   font-weight: bold;
   color: #fff;
   cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  body, html {
+    color: black !important;
+    background-color: beige !important;
+  }
+
+  * {
+    color: inherit;
+  }
 }
