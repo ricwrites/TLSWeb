@@ -99,5 +99,7 @@ color: black;
 }
 
 .footer {
+position: absolute;
 top:1800px;
+font-size:10px;
 }
