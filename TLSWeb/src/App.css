@@ -101,6 +101,6 @@ color: black;
 .footer {
 position: absolute;
 top:1800px;
-left:400px;
+margin-left:400px;
 font-size:10px;
 }
