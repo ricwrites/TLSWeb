@@ -93,7 +93,7 @@ export const Events = () => {
         <div className="event-card">
           <h2>{currentEvent.title}</h2>
           <p><strong>Date:</strong> {new Date(currentEvent.date).toLocaleDateString()}</p>
-          <p>{currentEvent.description}</p>
+          <p style={{ whiteSpace: "pre-line" }}>{currentEvent.description}</p>
 
          {/* NOTES SECTION */}
 {currentEvent.notes && currentEvent.notes.length > 0 && (
@@ -101,7 +101,7 @@ export const Events = () => {
     <strong>Notes:</strong>
     <ul>
       {currentEvent.notes.map((note, idx) => (
-        <li key={idx}>{note.text}</li>
+        <li key={idx} style={{ whiteSpace: "pre-line" }}>{note.text}</li>
       ))}
     </ul>
   </div>
