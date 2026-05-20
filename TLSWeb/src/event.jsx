@@ -95,6 +95,18 @@ export const Events = () => {
           <p><strong>Date:</strong> {new Date(currentEvent.date).toLocaleDateString()}</p>
           <p>{currentEvent.description}</p>
 
+         {/* NOTES SECTION */}
+{currentEvent.notes && currentEvent.notes.length > 0 && (
+  <div style={{ marginTop: "15px" }}>
+    <strong>Notes:</strong>
+    <ul>
+      {currentEvent.notes.map((note, idx) => (
+        <li key={idx}>{note.text}</li>
+      ))}
+    </ul>
+  </div>
+)}
+
           {/* Images carousel */}
         {currentEvent.images?.length > 0 && (
   <div
