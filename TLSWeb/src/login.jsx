@@ -34,7 +34,10 @@ export function Login() {
 } else if (json.role === "admin") {
   // redirect to the separate admin SPA
   window.location.href = "https://admin.thelearningsanctuary.quest/admin";
-} else {
+} else if (json.role === "satellite") {
+  // redirect to the separate admin SPA
+  window.location.href = "https://tlsmarks.onrender.com";
+}  else {
         alert("Unknown role");
       }
     } catch (err) {
